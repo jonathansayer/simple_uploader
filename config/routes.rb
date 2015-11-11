@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :photos, only: [:new, :create, :index, :destroy]
   root to: 'photos#index'
+  get "photos_download" => "photos#download"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

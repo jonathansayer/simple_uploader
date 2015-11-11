@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class PhotosController < ApplicationController
   def index
     @photos = Photo.order('created_at')
@@ -16,6 +18,12 @@ class PhotosController < ApplicationController
       render 'new'
     end
   end
+
+  def download
+    @photo = Photo.find(params[:format])
+    send_file @photo.image.path
+  end
+
 
   private
 
