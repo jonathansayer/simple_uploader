@@ -21,7 +21,7 @@ class PhotosController < ApplicationController
 
   def download
     @photo = Photo.find(params[:format])
-    send_file @photo.image.path
+    send_file @photo.image.path(:thumb)
   end
 
 
